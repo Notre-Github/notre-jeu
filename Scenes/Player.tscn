@@ -1,14 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://bm8k5hwsnotpi"]
+[gd_scene load_steps=6 format=3 uid="uid://bm8k5hwsnotpi"]
 
 [ext_resource type="Texture2D" uid="uid://isbsv8wfljqi" path="res://Assets/Sprites/player.png" id="1_a3xvx"]
-[ext_resource type="Script" path="res://Scripts/player.gd" id="1_lr80y"]
-[ext_resource type="Texture2D" uid="uid://dg4t1ux6g05m6" path="res://Assets/Sprites/shotgun.png" id="3_gesdb"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_etmr7"]
+[ext_resource type="PackedScene" uid="uid://byrutr1wj0xgj" path="res://Scenes/Shotgun.tscn" id="3_yd7ik"]
+[ext_resource type="PackedScene" uid="uid://bcwngjsdkqn82" path="res://Scenes/Knife.tscn" id="4_ociqi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g30mj"]
 size = Vector2(64, 64)
 
 [node name="Player" type="CharacterBody2D"]
-script = ExtResource("1_lr80y")
+script = ExtResource("1_etmr7")
 speed = 727
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
@@ -19,9 +20,6 @@ texture = ExtResource("1_a3xvx")
 [node name="PlayerCollisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_g30mj")
 
-[node name="Weapon" type="Node2D" parent="."]
+[node name="Shotgun" parent="." instance=ExtResource("3_yd7ik")]
 
-[node name="WeaponSprite" type="Sprite2D" parent="Weapon"]
-visibility_layer = 513
-scale = Vector2(4, 4)
-texture = ExtResource("3_gesdb")
+[node name="Knife" parent="." instance=ExtResource("4_ociqi")]

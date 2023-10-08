@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://b23l4r4yj4rnq"]
 
-[ext_resource type="PackedScene" uid="uid://bm8k5hwsnotpi" path="res://Scenes/player.tscn" id="1_pmb7m"]
+[ext_resource type="PackedScene" uid="uid://bm8k5hwsnotpi" path="res://Scenes/Player.tscn" id="1_pmb7m"]
 [ext_resource type="Texture2D" uid="uid://3ik8ex4v48o1" path="res://Assets/Sprites/cool_wallpaper.jpg" id="2_s6310"]
 
 [sub_resource type="Gradient" id="Gradient_f4blt"]
