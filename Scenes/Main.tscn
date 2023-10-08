@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://b23l4r4yj4rnq"]
+
+[ext_resource type="PackedScene" uid="uid://bm8k5hwsnotpi" path="res://Scenes/player.tscn" id="1_pmb7m"]
+[ext_resource type="Texture2D" uid="uid://3ik8ex4v48o1" path="res://Assets/Sprites/cool_wallpaper.jpg" id="2_s6310"]
+
+[sub_resource type="Gradient" id="Gradient_f4blt"]
+offsets = PackedFloat32Array(0, 0.976331)
+colors = PackedColorArray(0.47, 0, 0, 1, 1, 0.5, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_iv6sj"]
+noise_type = 3
+seed = 727
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wnqx6"]
+generate_mipmaps = false
+seamless = true
+bump_strength = 32.0
+color_ramp = SubResource("Gradient_f4blt")
+noise = SubResource("FastNoiseLite_iv6sj")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wueos"]
+blend_mode = 3
+
+[node name="Main" type="Node"]
+
+[node name="Player" parent="." instance=ExtResource("1_pmb7m")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-15.4999, 21.5002)
+scale = Vector2(16.3027, 8.91992)
+texture = SubResource("NoiseTexture2D_wnqx6")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = -1
+material = SubResource("CanvasItemMaterial_wueos")
+position = Vector2(-15.4999, 21.5002)
+scale = Vector2(16.3027, 8.91992)
+texture = ExtResource("2_s6310")
