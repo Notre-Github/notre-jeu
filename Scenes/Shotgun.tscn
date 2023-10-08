@@ -1,9 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://byrutr1wj0xgj"]
+[gd_scene load_steps=3 format=3 uid="uid://dct71v141wjm1"]
 
-[ext_resource type="Texture2D" uid="uid://dg4t1ux6g05m6" path="res://Assets/Sprites/shotgun.png" id="1_7tn84"]
+[ext_resource type="Script" path="res://Scripts/Shotgun.gd" id="1_gclu0"]
+[ext_resource type="Texture2D" uid="uid://dg4t1ux6g05m6" path="res://Assets/Sprites/shotgun.png" id="1_t68tg"]
 
 [node name="Shotgun" type="Node2D"]
+script = ExtResource("1_gclu0")
 
-[node name="ShotgunSprite" type="Sprite2D" parent="."]
+[node name="WeaponSprite" type="Sprite2D" parent="."]
+visibility_layer = 513
 scale = Vector2(4, 4)
-texture = ExtResource("1_7tn84")
+texture = ExtResource("1_t68tg")
+
+[node name="WeaponCanon" type="Node2D" parent="WeaponSprite"]
+position = Vector2(8, 0)

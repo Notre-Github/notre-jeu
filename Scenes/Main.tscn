@@ -26,6 +26,8 @@ blend_mode = 3
 [node name="Player" parent="." instance=ExtResource("1_pmb7m")]
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1

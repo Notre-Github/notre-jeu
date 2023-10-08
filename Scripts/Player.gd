@@ -10,7 +10,7 @@ func _ready():
 	screen_size = get_viewport_rect().size
 
 func get_input():
-	if Input.is_action_pressed("confirm"):
+	if Input.is_action_just_pressed("knife"):
 		get_node("Knife/AnimationPlayer").play("Knife_Slash")
 	var direction = Vector2.ZERO # The player's movement vector.
 	if Input.is_action_pressed("move_right"):
@@ -32,12 +32,12 @@ func _physics_process(_delta):
 
 func _process(_delta):
 	move_and_slide()
-	$Shotgun/ShotgunSprite.position = $Shotgun/ShotgunSprite.transform.x * offset;
+	$Shotgun/WeaponSprite.position = $Shotgun/WeaponSprite.transform.x * offset;
 	$Shotgun.rotation = lerp_angle($Shotgun.rotation, $Shotgun.rotation + $Shotgun.get_angle_to(get_global_mouse_position()), 0.1)
 	if abs($Shotgun.global_rotation_degrees) > 90:
-		$Shotgun/ShotgunSprite.flip_v = true
+		$Shotgun/WeaponSprite.flip_v = true
 	else:
-		$Shotgun/ShotgunSprite.flip_v = false
+		$Shotgun/WeaponSprite.flip_v = false
 	
 	$Knife/KnifeSprite.position = $Knife/KnifeSprite.transform.x * offset;
 	$Knife.rotation = lerp_angle($Knife.rotation, $Knife.rotation + $Knife.get_angle_to(get_global_mouse_position()), 0.1)
