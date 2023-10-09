@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bm8k5hwsnotpi"]
+[gd_scene load_steps=11 format=3 uid="uid://bm8k5hwsnotpi"]
 
 [ext_resource type="Texture2D" uid="uid://isbsv8wfljqi" path="res://Assets/Sprites/player.png" id="1_a3xvx"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_etmr7"]
 [ext_resource type="PackedScene" uid="uid://dct71v141wjm1" path="res://Scenes/Shotgun.tscn" id="3_yd7ik"]
 [ext_resource type="PackedScene" uid="uid://bcwngjsdkqn82" path="res://Scenes/Knife.tscn" id="4_ociqi"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_nona8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g30mj"]
 size = Vector2(64, 64)
@@ -30,6 +32,7 @@ speed = 727
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
 visibility_layer = 513
+material = SubResource("CanvasItemMaterial_nona8")
 scale = Vector2(4, 4)
 texture = ExtResource("1_a3xvx")
 

@@ -9,6 +9,12 @@ var healing
 @export var friction = 0.25
 @export var acceleration = 0.25
 
+@export var dash_force = 4
+@export var dash_delay = 1
+@export var dash_time = 0.1
+var dash_reload = 0
+var dash_duration = 0
+
 func _ready():
 	$HealthBar.max_value = health
 
@@ -38,7 +44,20 @@ func _physics_process(_delta):
 			healing = healing_delay
 
 	var direction = get_input();
-	if direction.length() > 0:
+	dash_reload -= _delta
+	if dash_reload > 0:
+		$PlayerSprite.material.blend_mode = 3
+	else:
+		$PlayerSprite.material.blend_mode = 0
+
+	if Input.is_action_just_pressed("dash") && dash_reload <= 0:
+		dash_duration = dash_time
+
+	if direction.length() > 0 && dash_duration > 0:
+		velocity = lerp(velocity, direction.normalized() * speed * dash_force, acceleration)
+		dash_reload = dash_delay
+		dash_duration -= _delta
+	elif direction.length() > 0:
 		velocity = lerp(velocity, direction.normalized() * speed, acceleration)
 	else:
 		velocity = lerp(velocity, Vector2.ZERO, friction)
