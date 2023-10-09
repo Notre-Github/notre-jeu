@@ -1,13 +1,28 @@
-[gd_scene load_steps=7 format=3 uid="uid://bm8k5hwsnotpi"]
+[gd_scene load_steps=10 format=3 uid="uid://bm8k5hwsnotpi"]
 
 [ext_resource type="Texture2D" uid="uid://isbsv8wfljqi" path="res://Assets/Sprites/player.png" id="1_a3xvx"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_etmr7"]
 [ext_resource type="PackedScene" uid="uid://dct71v141wjm1" path="res://Scenes/Shotgun.tscn" id="3_yd7ik"]
-[ext_resource type="Script" path="res://Scripts/Shotgun.gd" id="4_i3nsp"]
 [ext_resource type="PackedScene" uid="uid://bcwngjsdkqn82" path="res://Scenes/Knife.tscn" id="4_ociqi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g30mj"]
 size = Vector2(64, 64)
+
+[sub_resource type="Gradient" id="Gradient_1fcah"]
+colors = PackedColorArray(0.568627, 0.568627, 0.568627, 1, 0.568627, 0.568627, 0.568627, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_280sv"]
+gradient = SubResource("Gradient_1fcah")
+width = 32
+height = 4
+
+[sub_resource type="Gradient" id="Gradient_lkjbv"]
+colors = PackedColorArray(0.74902, 0, 0, 1, 0.74902, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3itfy"]
+gradient = SubResource("Gradient_lkjbv")
+width = 32
+height = 4
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_etmr7")
@@ -22,6 +37,13 @@ texture = ExtResource("1_a3xvx")
 shape = SubResource("RectangleShape2D_g30mj")
 
 [node name="Shotgun" parent="." instance=ExtResource("3_yd7ik")]
-script = ExtResource("4_i3nsp")
 
 [node name="Knife" parent="." instance=ExtResource("4_ociqi")]
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+offset_left = -16.0
+offset_top = -39.0
+offset_right = 48.0
+offset_bottom = 25.0
+texture_under = SubResource("GradientTexture2D_280sv")
+texture_progress = SubResource("GradientTexture2D_3itfy")

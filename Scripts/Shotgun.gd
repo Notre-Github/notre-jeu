@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var bullet_scene = preload("res://Scenes/bullet.tscn")
-@export var shotgun_rate = 1.0
+@export var shotgun_rate = 0.5
 var shotgun_reload = 0
 
 func _process(_delta):

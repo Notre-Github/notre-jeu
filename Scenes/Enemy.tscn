@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://baenlsikorm0u"]
+
+[ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_hw1aq"]
+[ext_resource type="Texture2D" uid="uid://cv4bq14t6fye2" path="res://Assets/Sprites/enemy.png" id="2_ynedf"]
+[ext_resource type="Texture2D" uid="uid://dg4t1ux6g05m6" path="res://Assets/Sprites/shotgun.png" id="3_lcjr8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g30mj"]
+size = Vector2(64, 64)
+
+[sub_resource type="Gradient" id="Gradient_fwn0t"]
+colors = PackedColorArray(0.568627, 0.568627, 0.568627, 1, 0.568627, 0.568627, 0.568627, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sho0h"]
+gradient = SubResource("Gradient_fwn0t")
+width = 32
+height = 4
+
+[sub_resource type="Gradient" id="Gradient_xv4e1"]
+colors = PackedColorArray(0.74902, 0, 0, 1, 0.74902, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_e8bsu"]
+gradient = SubResource("Gradient_xv4e1")
+width = 32
+height = 4
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 17
+script = ExtResource("1_hw1aq")
+
+[node name="EnemySprite" type="Sprite2D" parent="."]
+visibility_layer = 513
+scale = Vector2(4, 4)
+texture = ExtResource("2_ynedf")
+
+[node name="EnemyCollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_g30mj")
+debug_color = Color(0.984314, 0, 0.337255, 0.419608)
+
+[node name="EnemyWeapon" type="Node2D" parent="."]
+
+[node name="EnemyWeaponSprite" type="Sprite2D" parent="EnemyWeapon"]
+scale = Vector2(4, 4)
+texture = ExtResource("3_lcjr8")
+
+[node name="EnemyWeaponBarrel" type="Node2D" parent="EnemyWeapon/EnemyWeaponSprite"]
+position = Vector2(8, 0)
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+offset_left = -16.0
+offset_top = -39.0
+offset_right = 48.0
+offset_bottom = 25.0
+texture_under = SubResource("GradientTexture2D_sho0h")
+texture_progress = SubResource("GradientTexture2D_e8bsu")

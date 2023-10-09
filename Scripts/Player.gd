@@ -1,13 +1,16 @@
 extends CharacterBody2D
 
+@export var health = 6
+@export var healing_delay = 3
+var healing
+
 @export var speed = 400
 @export var offset = 12
 @export var friction = 0.25
 @export var acceleration = 0.25
-var screen_size
 
 func _ready():
-	screen_size = get_viewport_rect().size
+	$HealthBar.max_value = health
 
 func get_input():
 	if Input.is_action_just_pressed("knife"):
@@ -24,6 +27,16 @@ func get_input():
 	return direction
 
 func _physics_process(_delta):
+	if health <= 0:
+		queue_free()
+	$HealthBar.value = health
+
+	if health != $HealthBar.max_value:
+		healing -= _delta
+		if healing <= 0:
+			health += 1
+			healing = healing_delay
+
 	var direction = get_input();
 	if direction.length() > 0:
 		velocity = lerp(velocity, direction.normalized() * speed, acceleration)
