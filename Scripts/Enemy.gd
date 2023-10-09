@@ -6,7 +6,7 @@ var health = 2;
 @export var friction = 0.25
 @export var acceleration = 0.25
 
-@onready var bullet_scene = preload("res://Scenes/bullet.tscn")
+@onready var bullet_scene = preload("res://Scenes/Bullet.tscn")
 @export var shotgun_rate = 1.5
 var shotgun_reload = 2
 

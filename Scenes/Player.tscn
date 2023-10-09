@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bm8k5hwsnotpi"]
+[gd_scene load_steps=15 format=3 uid="uid://bm8k5hwsnotpi"]
 
 [ext_resource type="Texture2D" uid="uid://isbsv8wfljqi" path="res://Assets/Sprites/player.png" id="1_a3xvx"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_etmr7"]
 [ext_resource type="PackedScene" uid="uid://dct71v141wjm1" path="res://Scenes/Shotgun.tscn" id="3_yd7ik"]
 [ext_resource type="PackedScene" uid="uid://bcwngjsdkqn82" path="res://Scenes/Knife.tscn" id="4_ociqi"]
+[ext_resource type="Script" path="res://Scripts/Knife.gd" id="5_ro112"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_nona8"]
 
@@ -26,6 +27,42 @@ gradient = SubResource("Gradient_lkjbv")
 width = 32
 height = 4
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_akjwf"]
+emission_shape = 3
+emission_box_extents = Vector3(30, 5, 1)
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 180.0
+gravity = Vector3(0, -100, 0)
+initial_velocity_max = 25.0
+angular_velocity_min = 70.0
+angular_velocity_max = 70.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+linear_accel_min = 10.0
+linear_accel_max = 10.0
+damping_min = 1.0
+damping_max = 10.0
+angle_min = -50.0
+angle_max = 50.0
+scale_max = 2.0
+color = Color(1, 1, 1, 0.584314)
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
+
+[sub_resource type="Gradient" id="Gradient_i734n"]
+offsets = PackedFloat32Array(0, 0.43787, 0.715976, 1)
+colors = PackedColorArray(1, 1, 1, 0.67451, 1, 1, 1, 0.360784, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4adx5"]
+gradient = SubResource("Gradient_i734n")
+width = 16
+height = 16
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_etmr7")
 speed = 727
@@ -42,6 +79,7 @@ shape = SubResource("RectangleShape2D_g30mj")
 [node name="Shotgun" parent="." instance=ExtResource("3_yd7ik")]
 
 [node name="Knife" parent="." instance=ExtResource("4_ociqi")]
+script = ExtResource("5_ro112")
 
 [node name="HealthBar" type="TextureProgressBar" parent="."]
 offset_left = -16.0
@@ -50,3 +88,10 @@ offset_right = 48.0
 offset_bottom = 25.0
 texture_under = SubResource("GradientTexture2D_280sv")
 texture_progress = SubResource("GradientTexture2D_3itfy")
+
+[node name="RunningParticles" type="GPUParticles2D" parent="."]
+show_behind_parent = true
+position = Vector2(0, 16)
+amount = 12
+process_material = SubResource("ParticleProcessMaterial_akjwf")
+texture = SubResource("GradientTexture2D_4adx5")
