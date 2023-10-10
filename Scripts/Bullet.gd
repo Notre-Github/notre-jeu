@@ -9,5 +9,5 @@ func _on_body_entered(body):
 
 	if body == get_node("/root/Main/Player"):
 		get_node("/root/Main/Player").health -= 1
-		get_node("/root/Main/Player").healing = get_node("/root/Main/Player").healing_delay
+		get_node("/root/Main/Player").healing = get_node("/root/Main/Player").healing_delay * 3
 	queue_free()

@@ -37,6 +37,8 @@ func get_input():
 		velocity = lerp(velocity, Vector2.ZERO, friction)
 	if Input.is_action_just_pressed("dash") && dash_reload <= 0:
 		dash_duration = dash_time
+		$DashingParticles/StartDashParticles.emitting = true
+		$DashingParticles.emitting = true
 	return input_direction
 
 
@@ -65,10 +67,10 @@ func dash():
 	else:
 		$PlayerSprite.material.blend_mode = 0
 	if input_direction.length() > 0 && dash_duration > 0:
-			velocity = lerp(velocity, input_direction.normalized() * speed * dash_force, acceleration)
-			dash_reload = dash_delay
-			dash_duration -= get_physics_process_delta_time()
-
+		$DashingParticles.emitting = true
+		velocity = lerp(velocity, input_direction.normalized() * speed * dash_force, acceleration)
+		dash_reload = dash_delay
+		dash_duration -= get_physics_process_delta_time()
 
 func _physics_process(_delta):
 	get_input()
