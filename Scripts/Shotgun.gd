@@ -1,6 +1,6 @@
 extends Node2D
 
-var offset = 12
+var offset = 11
 @onready var bullet_scene = preload("res://Scenes/Bullet.tscn")
 @export var shotgun_rate = 0.5
 var shotgun_reload = 0

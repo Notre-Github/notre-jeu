@@ -1,9 +1,11 @@
-[gd_scene load_steps=23 format=3 uid="uid://bm8k5hwsnotpi"]
+[gd_scene load_steps=25 format=3 uid="uid://bm8k5hwsnotpi"]
 
-[ext_resource type="Texture2D" uid="uid://isbsv8wfljqi" path="res://Assets/Sprites/player.png" id="1_a3xvx"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_etmr7"]
+[ext_resource type="Texture2D" uid="uid://dua5lhlt1pb4a" path="res://Assets/Sprites/Character.png" id="2_ina8q"]
+[ext_resource type="Texture2D" uid="uid://cdukb2j5ua7x8" path="res://Assets/Sprites/LeftHand.png" id="3_g4t18"]
 [ext_resource type="PackedScene" uid="uid://dct71v141wjm1" path="res://Scenes/Shotgun.tscn" id="3_yd7ik"]
 [ext_resource type="PackedScene" uid="uid://bcwngjsdkqn82" path="res://Scenes/Knife.tscn" id="4_ociqi"]
+[ext_resource type="Texture2D" uid="uid://bfkt5j1id5mev" path="res://Assets/Sprites/RightHand.png" id="4_ushf2"]
 [ext_resource type="Script" path="res://Scripts/Knife.gd" id="5_ro112"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_nona8"]
@@ -119,7 +121,20 @@ speed = 727
 visibility_layer = 513
 material = SubResource("CanvasItemMaterial_nona8")
 scale = Vector2(4, 4)
-texture = ExtResource("1_a3xvx")
+texture = ExtResource("2_ina8q")
+
+[node name="LeftHand" type="Sprite2D" parent="PlayerSprite"]
+show_behind_parent = true
+position = Vector2(1.9, -2)
+texture = ExtResource("3_g4t18")
+centered = false
+offset = Vector2(-9.9, -6)
+
+[node name="RightHand" type="Sprite2D" parent="PlayerSprite"]
+position = Vector2(-2, -2)
+texture = ExtResource("4_ushf2")
+centered = false
+offset = Vector2(-6, -6)
 
 [node name="PlayerCollisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_g30mj")

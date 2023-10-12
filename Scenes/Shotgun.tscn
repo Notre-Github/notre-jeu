@@ -8,7 +8,7 @@ script = ExtResource("1_gclu0")
 
 [node name="WeaponSprite" type="Sprite2D" parent="."]
 visibility_layer = 513
-scale = Vector2(4, 4)
+scale = Vector2(3, 3)
 texture = ExtResource("1_t68tg")
 
 [node name="WeaponCanon" type="Node2D" parent="WeaponSprite"]

@@ -16,10 +16,11 @@ var healing
 var dash_reload = 0
 var dash_duration = 0
 
+const offset = 0
+
 
 func _ready():
 	$HealthBar.max_value = health
-
 
 func get_input():
 	input_direction = Vector2.ZERO
@@ -41,13 +42,11 @@ func get_input():
 		$DashingParticles.emitting = true
 	return input_direction
 
-
 func footsteps_particles():
 	if input_direction.length() > 0:
 		$RunningParticles.emitting = true
 	else:
 		$RunningParticles.emitting = false
-
 
 func character_health():
 	if health <= 0:
@@ -58,7 +57,6 @@ func character_health():
 		if healing <= 0:
 			health += 1
 			healing = healing_delay
-
 
 func dash(): 
 	dash_reload -= get_physics_process_delta_time()
@@ -72,6 +70,14 @@ func dash():
 		dash_reload = dash_delay
 		dash_duration -= get_physics_process_delta_time()
 
+func leaning_direction():
+	# Player body
+	$PlayerSprite.position = $PlayerSprite.transform.x;
+	# Left arm
+	$PlayerSprite/LeftHand.look_at($Shotgun/WeaponSprite.global_position)
+	# Right Arm
+	$PlayerSprite/RightHand.look_at($Shotgun/WeaponSprite.global_position)
+
 func _physics_process(_delta):
 	get_input()
 	dash()
@@ -80,3 +86,4 @@ func _physics_process(_delta):
 
 func _process(_delta):
 	move_and_slide()
+	leaning_direction()
