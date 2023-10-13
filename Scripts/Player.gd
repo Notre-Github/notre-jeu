@@ -18,11 +18,22 @@ var dash_duration = 0
 
 const offset = 0
 
+@onready var shotgun_scene = preload("res://Scenes/Shotgun.tscn").instantiate()
+@onready var pistol_scene = preload("res://Scenes/Pistol.tscn").instantiate()
+
 
 func _ready():
 	$HealthBar.max_value = health
 
+func swap_weapons(old_scene, new_scene):
+	remove_child(old_scene)
+	add_child(new_scene)
+
 func get_input():
+	if Input.is_action_just_pressed('w1'):
+		swap_weapons(get_node("Weapon"), shotgun_scene)
+	if Input.is_action_just_pressed('w2'):
+		swap_weapons(get_node("Weapon"), pistol_scene)
 	input_direction = Vector2.ZERO
 	if Input.is_action_pressed('move_right'):
 		input_direction.x += 1
@@ -74,9 +85,9 @@ func leaning_direction():
 	# Player body
 	$PlayerSprite.position = $PlayerSprite.transform.x;
 	# Left arm
-	$PlayerSprite/LeftHand.look_at($Shotgun/WeaponSprite.global_position)
+	$PlayerSprite/LeftHand.look_at($Weapon/WeaponSprite.global_position)
 	# Right Arm
-	$PlayerSprite/RightHand.look_at($Shotgun/WeaponSprite.global_position)
+	$PlayerSprite/RightHand.look_at($Weapon/WeaponSprite.global_position)
 
 func _physics_process(_delta):
 	get_input()

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3fl7dceyg2kx"]
+
+[ext_resource type="Texture2D" uid="uid://eyjg6mm6rhtw" path="res://Assets/Sprites/pistol.png" id="1_2v3b6"]
+[ext_resource type="Script" path="res://Scripts/Pistol.gd" id="1_2xgf4"]
+
+[node name="Weapon" type="Node2D"]
+script = ExtResource("1_2xgf4")
+
+[node name="WeaponSprite" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("1_2v3b6")
+
+[node name="WeaponCanon" type="Node2D" parent="WeaponSprite"]
+position = Vector2(15, -4)

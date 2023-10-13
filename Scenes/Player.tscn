@@ -139,10 +139,10 @@ offset = Vector2(-6, -6)
 [node name="PlayerCollisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_g30mj")
 
-[node name="Shotgun" parent="." instance=ExtResource("3_yd7ik")]
-
 [node name="Knife" parent="." instance=ExtResource("4_ociqi")]
 script = ExtResource("5_ro112")
+
+[node name="Weapon" parent="." instance=ExtResource("3_yd7ik")]
 
 [node name="HealthBar" type="TextureProgressBar" parent="."]
 offset_left = -16.0
