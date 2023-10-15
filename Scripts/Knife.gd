@@ -11,4 +11,5 @@ func _process(_delta):
 
 func _on_area_2d_area_entered(area):
 	if get_node("AnimationPlayer").is_playing():
+		area.look_at(get_node("/root/Main/Player").position)
 		area.rotation += PI

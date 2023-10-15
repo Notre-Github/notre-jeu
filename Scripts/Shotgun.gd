@@ -8,6 +8,9 @@ var random = RandomNumberGenerator.new()
 
 func _ready():
 	random.randomize()
+	
+func _enter_tree():
+	rotation = rotation + get_angle_to(get_global_mouse_position()) + 3
 
 func shotgun_follow_mouse():
 	$WeaponSprite.position = $WeaponSprite.transform.x * offset;

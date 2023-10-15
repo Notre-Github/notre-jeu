@@ -5,6 +5,9 @@ var offset = 11
 @export var fire_rate = 0.5
 var reload = 0
 
+func _enter_tree():
+	rotation = rotation + get_angle_to(get_global_mouse_position()) + 3
+
 func shotgun_follow_mouse():
 	$WeaponSprite.position = $WeaponSprite.transform.x * offset;
 	rotation = lerp_angle(rotation, rotation + get_angle_to(get_global_mouse_position()), 0.1)
