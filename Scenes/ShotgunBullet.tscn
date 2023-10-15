@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://cacy6o823t88q"]
+
+[ext_resource type="Script" path="res://Scripts/ShotgunBullet.gd" id="1_1dtgk"]
+
+[sub_resource type="Gradient" id="Gradient_hlaw5"]
+offsets = PackedFloat32Array(0, 0.846154, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m55lf"]
+gradient = SubResource("Gradient_hlaw5")
+width = 4
+height = 4
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.948276, 0.103448)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ed0a"]
+size = Vector2(16, 16)
+
+[node name="Bullet" type="Area2D"]
+disable_mode = 2
+script = ExtResource("1_1dtgk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = SubResource("GradientTexture2D_m55lf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5ed0a")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

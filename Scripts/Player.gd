@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var input_direction = Vector2.ZERO
 
-@export var health = 6
+@export var health = 60
 @export var healing_delay = 3
 var healing
 

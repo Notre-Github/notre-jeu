@@ -2,8 +2,8 @@ extends Node2D
 
 var offset = 11
 @onready var bullet_scene = preload("res://Scenes/Bullet.tscn")
-@export var shotgun_rate = 0.25
-var shotgun_reload = 0
+@export var fire_rate = 0.5
+var reload = 0
 
 func shotgun_follow_mouse():
 	$WeaponSprite.position = $WeaponSprite.transform.x * offset;
@@ -15,9 +15,9 @@ func shotgun_follow_mouse():
 
 func _process(_delta):
 	shotgun_follow_mouse()
-	shotgun_reload -= _delta
-	if Input.is_action_just_pressed("fire") && shotgun_reload < 0:
-		shotgun_reload = shotgun_rate;
+	reload -= _delta
+	if Input.is_action_just_pressed("fire") && reload < 0:
+		reload = fire_rate;
 		var bullet = bullet_scene.instantiate()
 		get_node("/root/Main").add_child(bullet)
 		bullet.global_transform = $WeaponSprite/WeaponCanon.global_transform

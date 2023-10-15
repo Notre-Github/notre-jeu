@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var health = 2;
+var health = 20;
 
 @export var speed = 300
 @export var friction = 0.25

@@ -1,6 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bcwngjsdkqn82"]
+[gd_scene load_steps=6 format=3 uid="uid://bcwngjsdkqn82"]
 
+[ext_resource type="Script" path="res://Scripts/Knife.gd" id="1_em3gm"]
 [ext_resource type="Texture2D" uid="uid://bve68b324vv3h" path="res://Assets/Sprites/knife.png" id="1_hohcx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_82sgc"]
+size = Vector2(13.0836, 6.18333)
 
 [sub_resource type="Animation" id="Animation_m4rdp"]
 resource_name = "Knife_Slash"
@@ -36,6 +40,7 @@ _data = {
 }
 
 [node name="Knife" type="Node2D"]
+script = ExtResource("1_em3gm")
 
 [node name="KnifeSprite" type="Sprite2D" parent="."]
 visible = false
@@ -44,8 +49,16 @@ scale = Vector2(4, 4)
 texture = ExtResource("1_hohcx")
 offset = Vector2(4.15, 0)
 
+[node name="Area2D" type="Area2D" parent="KnifeSprite"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KnifeSprite/Area2D"]
+position = Vector2(4.77162, -0.0556846)
+shape = SubResource("RectangleShape2D_82sgc")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../KnifeSprite")
 libraries = {
 "": SubResource("AnimationLibrary_dmbds")
 }
+
+[connection signal="area_entered" from="KnifeSprite/Area2D" to="." method="_on_area_2d_area_entered"]
