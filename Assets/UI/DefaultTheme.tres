@@ -1,0 +1,31 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://dbafvnkyfajsk"]
+
+[ext_resource type="FontFile" uid="uid://cd2a3xvc8ttg1" path="res://Assets/UI/notre-font.ttf" id="1_5lpjf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8wp33"]
+bg_color = Color(0.133196, 0.133196, 0.133196, 0.862745)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5xqao"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r41q1"]
+bg_color = Color(0.431373, 0.431373, 0.431373, 0.823529)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_am3nj"]
+bg_color = Color(0.151276, 0.151276, 0.151276, 0.803922)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8m7fr"]
+bg_color = Color(0, 0, 0, 0.784314)
+
+[resource]
+default_font = ExtResource("1_5lpjf")
+Button/styles/disabled = SubResource("StyleBoxFlat_8wp33")
+Button/styles/focus = SubResource("StyleBoxEmpty_5xqao")
+Button/styles/hover = SubResource("StyleBoxFlat_r41q1")
+Button/styles/normal = SubResource("StyleBoxFlat_am3nj")
+Button/styles/pressed = SubResource("StyleBoxFlat_r41q1")
+Panel/styles/panel = SubResource("StyleBoxFlat_8m7fr")
