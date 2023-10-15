@@ -4,7 +4,8 @@ func _process(delta):
 	position += (transform.x * 1000) * delta
 
 func _on_body_entered(body):
-	if body.get_name().begins_with("Enemy"):
+	#if body.get_name().begins_with("Enemy"):
+	if get_tree().get_nodes_in_group("Enemies").find("Enemy"):
 		body.health -= 5
 
 	if body == get_node("/root/Main/Player"):

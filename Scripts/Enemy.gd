@@ -11,6 +11,7 @@ var health = 20;
 var shotgun_reload = 2
 
 func _ready():
+	add_to_group("Enemies")
 	$HealthBar.max_value = health
 
 func _process(delta):
