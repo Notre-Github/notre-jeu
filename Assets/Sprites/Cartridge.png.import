@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://di3iqko6oy3r5"
-path="res://.godot/imported/bullet.png-01b797d76f64f0a3fea939dd04a7ef5b.ctex"
+uid="uid://dvt6xo48mxx56"
+path="res://.godot/imported/Cartridge.png-e1908d6f00f6539e41d97c7538762fe1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/bullet.png"
-dest_files=["res://.godot/imported/bullet.png-01b797d76f64f0a3fea939dd04a7ef5b.ctex"]
+source_file="res://Assets/Sprites/Cartridge.png"
+dest_files=["res://.godot/imported/Cartridge.png-e1908d6f00f6539e41d97c7538762fe1.ctex"]
 
 [params]
 

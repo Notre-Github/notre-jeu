@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://baenlsikorm0u"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_hw1aq"]
-[ext_resource type="Texture2D" uid="uid://cv4bq14t6fye2" path="res://Assets/Sprites/enemy.png" id="2_ynedf"]
+[ext_resource type="Texture2D" uid="uid://cv4bq14t6fye2" path="res://Assets/Sprites/Enemy.png" id="2_ynedf"]
 [ext_resource type="Texture2D" uid="uid://dg4t1ux6g05m6" path="res://Assets/Sprites/shotgun.png" id="3_lcjr8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g30mj"]

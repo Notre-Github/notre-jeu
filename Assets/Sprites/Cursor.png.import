@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dg4t1ux6g05m6"
-path="res://.godot/imported/shotgun.png-4a5238ae4ad1107f046069f353c3e49e.ctex"
+uid="uid://buqsv4ofd6e0i"
+path="res://.godot/imported/Cursor.png-c54a053f5093ecc278a514fdc0ea3b1d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/shotgun.png"
-dest_files=["res://.godot/imported/shotgun.png-4a5238ae4ad1107f046069f353c3e49e.ctex"]
+source_file="res://Assets/Sprites/Cursor.png"
+dest_files=["res://.godot/imported/Cursor.png-c54a053f5093ecc278a514fdc0ea3b1d.ctex"]
 
 [params]
 

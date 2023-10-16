@@ -13,14 +13,14 @@ config_version=5
 config/name="notre-Jeu"
 run/main_scene="res://Scenes/Main.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
-config/icon="res://icon.png"
+config/icon="res://Icon.png"
 
 [display]
 
 window/size/viewport_width=1600
 window/size/viewport_height=900
 window/stretch/mode="canvas_items"
-mouse_cursor/custom_image="res://Assets/Sprites/cursor.png"
+mouse_cursor/custom_image="res://Assets/Sprites/Cursor.png"
 
 [input]
 

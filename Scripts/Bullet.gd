@@ -4,10 +4,10 @@ func _process(delta):
 	position += (transform.x * 1000) * delta
 
 func _on_body_entered(body):
-	if get_tree().get_nodes_in_group("Enemies"):
+	if body in get_tree().get_nodes_in_group("Enemies"):
 		body.health -= 5
 	
-	if get_tree().get_nodes_in_group("Objects"):
+	if body in get_tree().get_nodes_in_group("Objects"):
 		body.health -= 1
 
 	if body == get_tree().get_first_node_in_group("Player"):

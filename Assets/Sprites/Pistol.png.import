@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvt6xo48mxx56"
-path="res://.godot/imported/cartridge.png-b0ddf3146ce5ba93ce98939b37cf38bd.ctex"
+uid="uid://eyjg6mm6rhtw"
+path="res://.godot/imported/Pistol.png-83c5f6502b7b2b749918e82b6e3d32fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/cartridge.png"
-dest_files=["res://.godot/imported/cartridge.png-b0ddf3146ce5ba93ce98939b37cf38bd.ctex"]
+source_file="res://Assets/Sprites/Pistol.png"
+dest_files=["res://.godot/imported/Pistol.png-83c5f6502b7b2b749918e82b6e3d32fe.ctex"]
 
 [params]
 
