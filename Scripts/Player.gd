@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var input_direction = Vector2.ZERO
+@export var input_direction = Vector2.ZERO
 
 @export var health = 60
 @export var healing_delay = 3
@@ -16,20 +16,19 @@ var healing
 var dash_reload = 0
 var dash_duration = 0
 
-const offset = 0
-
 @onready var shotgun_scene = preload("res://Scenes/Shotgun.tscn").instantiate()
 @onready var pistol_scene = preload("res://Scenes/Pistol.tscn").instantiate()
 
 
-func _ready():
+func _ready() -> void:
+	add_to_group("Player")
 	$HealthBar.max_value = health
 
-func swap_weapons(old_scene, new_scene):
+func swap_weapons(old_scene, new_scene) -> void:
 	remove_child(old_scene)
 	add_child(new_scene)
 
-func get_input():
+func get_input() -> Vector2:
 	if Input.is_action_just_pressed('w1'):
 		swap_weapons(get_node("Weapon"), shotgun_scene)
 	if Input.is_action_just_pressed('w2'):
@@ -53,13 +52,13 @@ func get_input():
 		$DashingParticles.emitting = true
 	return input_direction
 
-func footsteps_particles():
+func footsteps_particles() -> void:
 	if input_direction.length() > 0:
 		$RunningParticles.emitting = true
 	else:
 		$RunningParticles.emitting = false
 
-func character_health():
+func character_health() -> void:
 	if health <= 0:
 		queue_free()
 	$HealthBar.value = health
@@ -81,13 +80,17 @@ func dash():
 		dash_reload = dash_delay
 		dash_duration -= get_physics_process_delta_time()
 
-func leaning_direction():
-	# Player body
-	$PlayerSprite.position = $PlayerSprite.transform.x;
-	# Left arm
-	$PlayerSprite/LeftHand.look_at($Weapon/WeaponSprite.global_position)
-	# Right Arm
-	$PlayerSprite/RightHand.look_at($Weapon/WeaponSprite.global_position)
+func leaning_direction() -> void:
+	$PlayerSprite.position = $PlayerSprite.transform.x; # Player's body
+	$PlayerSprite/LeftHand.look_at($Weapon/WeaponSprite.global_position) # Player's left arm
+	$PlayerSprite/RightHand.look_at($Weapon/WeaponSprite.global_position) # Player's right Arm
+
+func _pushing_direction() -> void:
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var push_force = speed
+		if collision.get_collider() is RigidBody2D:
+			collision.get_collider().apply_central_force(-collision.get_normal() * push_force)
 
 func _physics_process(_delta):
 	get_input()
@@ -98,3 +101,4 @@ func _physics_process(_delta):
 func _process(_delta):
 	move_and_slide()
 	leaning_direction()
+	_pushing_direction()
