@@ -6,6 +6,8 @@ var health = 20;
 @export var friction = 0.25
 @export var acceleration = 0.25
 
+@onready var piece_scene = preload("res://Scenes/piece.tscn")
+
 @onready var bullet_scene = preload("res://Scenes/Bullet.tscn")
 @export var shotgun_rate = 1.5
 var shotgun_reload = 2
@@ -34,6 +36,10 @@ func _process(delta):
 
 func _physics_process(_delta):
 	if health <= 0:
+		var piece = piece_scene.instantiate()
+		get_node("/root/Main").add_child(piece)
+		piece.global_transform = $EnemySprite.global_transform
+		piece.scale = Vector2(3, 3)
 		queue_free()
 	$HealthBar.value = health
 
